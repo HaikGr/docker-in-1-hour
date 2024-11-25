@@ -1,1 +1,1 @@
-Hello from Hayk.
+Hello from Hayk
