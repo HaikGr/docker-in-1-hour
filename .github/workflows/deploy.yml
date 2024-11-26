@@ -41,7 +41,7 @@ jobs:
           docker pull ${{ secrets.DOCKER_IMAGE }}
           
           # Stop the existing container if it's running
-          docker stop my-app  true && docker rm my-app  true
+          docker rm -f my-app
           
           # Run the Docker container
           docker run -d --name my-app -p 1234:3000 ${{ secrets.DOCKER_IMAGE }}
