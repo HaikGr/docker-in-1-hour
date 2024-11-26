@@ -20,7 +20,7 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.USERNAME }}
+          username: ${{ vars.USERNAME }}
           password: ${{ secrets.PASSWORD }}
 
       - name: List and delete old Docker images, keeping only the two latest
