@@ -42,4 +42,6 @@ jobs:
             VERSION=${{ env.VERSION }}
             docker pull ${{ secrets.DOCKER_IMAGE }}:$VERSION
             docker ps -a --filter "name=devcont-*" -q | xargs docker rm -f
+            latest_image=$(docker images --filter "reference=devcont-*" --format "{{.ID}}" | head -n 1)
+            docker images --filter "reference=devcont-*" -q | grep -v "$latest_image" | xargs docker rmi -f
             docker run -d --name devcont-$VERSION -p 4321:3000 ${{ secrets.DOCKER_IMAGE }}:$VERSION
