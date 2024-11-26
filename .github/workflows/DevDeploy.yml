@@ -41,5 +41,6 @@ jobs:
           script: |
             VERSION=${{ env.VERSION }}
             docker pull ${{ secrets.DOCKER_IMAGE }}:$VERSION
-            docker stop my-app  true && docker rm my-app  true
+            docker stop my-app-$VERSION
+            docker rm -f my-app-$VERSION
             docker run -d --name my-app-$VERSION -p 4321:3000 ${{ secrets.DOCKER_IMAGE }}:$VERSION
