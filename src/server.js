@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req,res)=>{
-     res.send("Created DockerImage and runned by Docker on port 1234!"); 
+     res.send("Dev branch action that create DockerImage and deploy to my server on port 4321!"); 
  });
 
 app.listen(3000, function () {
